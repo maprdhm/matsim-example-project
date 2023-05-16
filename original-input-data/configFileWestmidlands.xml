@@ -16,7 +16,7 @@
 		<param name="keepWaysWithPublicTransit" value="true" />
 		<param name="maxLinkLength" value="150.0" />
 		<!-- The path to the osm file. -->
-		<param name="osmFile" value="/home/geompr/Documents/Leeds/RAIM/code/RAIM/data/westmidlands/westmidlands.osm" />
+		<param name="osmFile" value="/home/geompr/Documents/Leeds/RAIM/code/RAIM/data/westmidlands/westmidlands_network_larger.osm" />
 		<!-- Output coordinate system. EPSG:* codes are supported and recommended.
 		Use 'WGS84' for no transformation (though this may lead to errors with PT mapping). -->
 		<param name="outputCoordinateSystem" value="EPSG:27700" />

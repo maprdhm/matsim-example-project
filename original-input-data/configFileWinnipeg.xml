@@ -16,14 +16,14 @@
 		<param name="keepWaysWithPublicTransit" value="true" />
 		<param name="maxLinkLength" value="150.0" />
 		<!-- The path to the osm file. -->
-		<param name="osmFile" value="/home/manon/Documents/Leeds/RAIM/code/RAIM/data/winnipeg/winnipeg.osm" />
+		<param name="osmFile" value="/home/geompr/Documents/Leeds/RAIM/code/RAIM/data/winnipeg/winnipeg_network_larger.osm" />
 		<!-- Output coordinate system. EPSG:* codes are supported and recommended.
 		Use 'WGS84' for no transformation (though this may lead to errors with PT mapping). -->
 		<param name="outputCoordinateSystem" value="EPSG:3158" />
 		<!-- CSV file containing the full geometry (including start end end node) for each link.
 		This file can be used for visualization purposes in Simunto Via or GIS software. -->
-		<param name="outputDetailedLinkGeometryFile" value="/home/manon/Documents/Leeds/RAIM/code/RAIM/data/winnipeg/network.csv" />
-		<param name="outputNetworkFile" value="/home/manon/Documents/Leeds/RAIM/code/RAIM/data/winnipeg/network.xml" />
+		<param name="outputDetailedLinkGeometryFile" value="/home/geompr/Documents/Leeds/RAIM/code/RAIM/data/winnipeg/network.csv" />
+		<param name="outputNetworkFile" value="/home/geompr/Documents/Leeds/RAIM/code/RAIM/data/winnipeg/network.xml" />
 		<!-- In case the speed limit allowed does not represent the speed a vehicle can actually realize, 
 		e.g. by constrains of traffic lights not explicitly modeled, a kind of "average simulated speed" can be used.
 		Defaults to false. Set true to scale the speed limit down by the value specified by the wayDefaultParams) -->
@@ -31,6 +31,10 @@
 		<parameterset type="routableSubnetwork" >
 			<param name="allowedTransportModes" value="car" />
 			<param name="subnetworkMode" value="car" />
+		</parameterset>
+		<parameterset type="routableSubnetwork" >
+			<param name="allowedTransportModes" value="ride,car" />
+			<param name="subnetworkMode" value="ride" />
 		</parameterset>
 		<parameterset type="routableSubnetwork" >
 			<param name="allowedTransportModes" value="bus,car" />
