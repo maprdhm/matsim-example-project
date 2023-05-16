@@ -31,13 +31,14 @@ import org.w3c.dom.NodeList;
 public class AssignLinkToCounts {
 	
 	public static void main(String[] args) {
-		Config config = ConfigUtils.loadConfig( "/home/geompr/Documents/Leeds/RAIM/code/RAIM/matsim-raim/scenarios/westmidlands/2022/monday/input/monday_2022_config_10pct.xml" );
+		//Config config = ConfigUtils.loadConfig( "/home/geompr/Documents/Leeds/RAIM/code/RAIM/matsim-raim/scenarios_v2/monday_2022_config_10pct.xml");
+		Config config = ConfigUtils.loadConfig( "/home/geompr/Documents/Leeds/RAIM/code/RAIM/matsim-raim/scenarios_v1/winnipeg/2022/input/weekday/weekday_2022_config_25pct.xml");
 		Scenario scenario = ScenarioUtils.loadScenario(config) ;
 		
 		try { 
 			for (int i=1;i<=7;i++) {
-				File file = new File("/home/geompr/Documents/Leeds/RAIM/code/RAIM/data/westmidlands/counts_day"+i+".xml");  
-
+				//File file = new File("/home/geompr/Documents/Leeds/RAIM/code/RAIM/data/westmidlands/TfWM/counts_day"+i+".xml");  
+				File file = new File("/home/geompr/Documents/Leeds/RAIM/code/RAIM/data/winnipeg/DATA/Open_data_winnipeg/counts_day"+i+".xml");  
 				DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();  
 				DocumentBuilder db = dbf.newDocumentBuilder();  
 				Document doc = db.parse(file);  
@@ -59,18 +60,18 @@ public class AssignLinkToCounts {
 						String link_id = l.getId().toString();
 						
 						// Deal with duplicated links manually
-						if(eElement.getAttribute("cs_id").equals("SAAN0029"))
-							link_id = "252320";
-						else if(eElement.getAttribute("cs_id").equals("BMAN0083"))
-							link_id = "5941";
-						else if(eElement.getAttribute("cs_id").equals("BMAN0070"))
-							link_id = "198323";
-						else if(eElement.getAttribute("cs_id").equals("BMAN0041"))
-							link_id = "264244";
-						else if(eElement.getAttribute("cs_id").equals("BMAN0035"))
-							link_id = "103843";
-						else if(eElement.getAttribute("cs_id").equals("BMAN0033"))
-							link_id = "195017";
+//						if(eElement.getAttribute("cs_id").equals("SAAN0029"))
+//							link_id = "252320";
+//						else if(eElement.getAttribute("cs_id").equals("BMAN0083"))
+//							link_id = "5941";
+//						else if(eElement.getAttribute("cs_id").equals("BMAN0070"))
+//							link_id = "198323";
+//						else if(eElement.getAttribute("cs_id").equals("BMAN0041"))
+//							link_id = "264244";
+//						else if(eElement.getAttribute("cs_id").equals("BMAN0035"))
+//							link_id = "103843";
+//						else if(eElement.getAttribute("cs_id").equals("BMAN0033"))
+//							link_id = "195017";
 	
 						eElement.setAttribute("loc_id", link_id);
 						li.add(link_id);
@@ -85,7 +86,9 @@ public class AssignLinkToCounts {
 			      }
 			      System.out.println("Duplicate integers in given list is/are " + hTargetSet);
 			   
-			      try (FileOutputStream output = new FileOutputStream("/home/geompr/Documents/Leeds/RAIM/code/RAIM/data/westmidlands/counts_day"+i+"_.xml")) {
+			      
+			      //try (FileOutputStream output = new FileOutputStream("/home/geompr/Documents/Leeds/RAIM/code/RAIM/data/westmidlands/counts_day"+i+"_.xml")) {
+				  try (FileOutputStream output = new FileOutputStream("/home/geompr/Documents/Leeds/RAIM/code/RAIM/data/winnipeg/DATA/Open_data_winnipeg//__counts_day"+i+"_.xml")) {
 	             writeXml(doc, output);
 	         }
 	

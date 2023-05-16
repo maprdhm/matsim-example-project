@@ -18,7 +18,8 @@
  * *********************************************************************** */
 package org.matsim.project;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -29,6 +30,7 @@ import org.matsim.core.events.EventsUtils;
 import org.matsim.core.population.PopulationUtils;
 import org.matsim.core.utils.io.IOUtils;
 import org.matsim.examples.ExamplesUtils;
+import org.matsim.run.CreateFullConfigTest;
 import org.matsim.testcases.MatsimTestUtils;
 import org.matsim.utils.eventsfilecomparison.EventsFileComparator;
 
@@ -39,6 +41,7 @@ import java.net.URL;
  *
  */
 public class RunMatsimTest {
+	private final static Logger log = LogManager.getLogger(CreateFullConfigTest.class);
 	
 	@Rule public MatsimTestUtils utils = new MatsimTestUtils() ;
 
@@ -71,7 +74,7 @@ public class RunMatsimTest {
 			}
 
 		} catch ( Exception ee ) {
-			Logger.getLogger(this.getClass()).fatal("there was an exception: \n" + ee ) ;
+			log.info("there was an exception: \n" + ee ) ;
 
 			// if one catches an exception, then one needs to explicitly fail the test:
 			Assert.fail();
